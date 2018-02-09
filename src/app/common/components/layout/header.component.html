@@ -1,0 +1,17 @@
+<nav class="navbar navbar-light bg-light">
+  <img src="/assets/images/investor-network.png">
+  <input id="param" type="text" class="form-control" placeholder="Search Company Name/Ticker" [ngbTypeahead]="search" (selectItem)="searchParam($event)"/>
+</nav>
+<nav class="navbar navbar-light bg-light">
+    <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic">
+      <label ngbButtonLabel class="btn-primary">
+        <input ngbButton type="radio" (click)="navSelect(1)"> Menu 1
+      </label>
+      <label ngbButtonLabel class="btn-primary">
+        <input ngbButton type="radio" (click)="navSelect(2)"> Menu 2
+      </label>
+      <label ngbButtonLabel class="btn-primary">
+        <input ngbButton type="radio" (click)="navSelect(3)"> Menu 3
+      </label>
+    </div>
+</nav>
