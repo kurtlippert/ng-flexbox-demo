@@ -1,3 +1,8 @@
 <p>
   company-profile works!
+  <input #searchBox id="search-box" (keyup)="loadCompany(searchBox.value)" />
+  <br><br>
+  <span class="badge">{{company.id}}</span><br>
+  <span class="badge">{{company.name}}</span><br>
+  <span class="badge">{{company.social.picture}}</span>
 </p>

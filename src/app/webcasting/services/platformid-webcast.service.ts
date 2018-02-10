@@ -1,97 +1,45 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Webcast } from '../classes/webcast';
+import { apiResponse } from '../../common/classes/apiResponse';
 import { DebuggerService } from '../../common/services/debugger.service';
+import {environment} from "../../../environments/environment";
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Basic WFhYYW5vbnltb3VzWFhYOg=='})
 };
 
 @Injectable()
 export class PlatformidWebcastService {
 
-  private apiURL = 'api/Webcastes';  // URL to web api
+  private apiURL = environment.companyhub;
 
-  constructor(
+  constructor (
     private http: HttpClient,
     private debugService: DebuggerService) { }
 
   /** GET Webcasts from the server */
-  getWebcasts (): Observable<Webcast[]> {
-    return this.http.get<Webcast[]>(this.apiURL)
+  listPublicActive (): Observable<apiResponse> {
+    let api = this.http.get(this.apiURL + '/api/webcast/event/public-active', httpOptions)
       .pipe(
-        tap(Webcastes => this.log(`fetched Webcastes`)),
-        catchError(this.handleError('getWebcastes', []))
+        tap(Webcasts => this.log(`fetched Webcasts`)),
+        catchError(this.handleError('getWebcasts', []))
       );
+    return api as Observable<apiResponse>;
   }
 
-  /** GET Webcast by id. Return `undefined` when id not found */
-  getWebcastNo404<Data>(id: number): Observable<Webcast> {
-    const url = `${this.apiURL}/?id=${id}`;
-    return this.http.get<Webcast[]>(url)
+  /** GET Webcasts from the server */
+  loadEvent (id: string): Observable<apiResponse> {
+    let api = this.http.get(this.apiURL + '/api/webcast/event/info?id=' + id, httpOptions)
       .pipe(
-        map(Webcastes => Webcastes[0]), // returns a {0|1} element array
-        tap(h => {
-          const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} Webcast id=${id}`);
-        }),
-        catchError(this.handleError<Webcast>(`getWebcast id=${id}`))
+        tap(Webcasts => this.log(`fetched Webcasts`)),
+        catchError(this.handleError('getWebcasts', []))
       );
-  }
-
-  /** GET Webcast by id. Will 404 if id not found */
-  getWebcast(id: number): Observable<Webcast> {
-    const url = `${this.apiURL}/${id}`;
-    return this.http.get<Webcast>(url).pipe(
-      tap(_ => this.log(`fetched Webcast id=${id}`)),
-      catchError(this.handleError<Webcast>(`getWebcast id=${id}`))
-    );
-  }
-
-  /* GET Webcasts whose name contains search term */
-  searchWebcasts(term: string): Observable<Webcast[]> {
-    if (!term.trim()) {
-      // if not search term, return empty Webcast array.
-      return of([]);
-    }
-    return this.http.get<Webcast[]>(`api/Webcastes/?name=${term}`).pipe(
-      tap(_ => this.log(`found Webcastes matching "${term}"`)),
-      catchError(this.handleError<Webcast[]>('searchWebcastes', []))
-    );
-  }
-
-  //////// Save methods //////////
-
-  /** POST: add a new Webcast to the server */
-  addWebcast (Webcast: Webcast): Observable<Webcast> {
-    return this.http.post<Webcast>(this.apiURL, Webcast, httpOptions).pipe(
-      tap((Webcast: Webcast) => this.log(`added Webcast w/ id=${Webcast.id}`)),
-      catchError(this.handleError<Webcast>('addWebcast'))
-    );
-  }
-
-  /** DELETE: delete the Webcast from the server */
-  deleteWebcast (Webcast: Webcast | number): Observable<Webcast> {
-    const id = typeof Webcast === 'number' ? Webcast : Webcast.id;
-    const url = `${this.apiURL}/${id}`;
-
-    return this.http.delete<Webcast>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted Webcast id=${id}`)),
-      catchError(this.handleError<Webcast>('deleteWebcast'))
-    );
-  }
-
-  /** PUT: update the Webcast on the server */
-  updateWebcast (Webcast: Webcast): Observable<any> {
-    return this.http.put(this.apiURL, Webcast, httpOptions).pipe(
-      tap(_ => this.log(`updated Webcast id=${Webcast.id}`)),
-      catchError(this.handleError<any>('updateWebcast'))
-    );
+    return api as Observable<apiResponse>;
   }
 
   /**

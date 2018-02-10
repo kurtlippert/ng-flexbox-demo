@@ -1,3 +1,3 @@
-export class Webcast {
-  
+export class Pagination {
+
 }
