@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PlatformidWebcastService} from "../../services/platformid-webcast.service";
+import {PlatformidWebcastService} from "../../../common/services/platformid-webcast.service";
 import { ActivatedRoute } from '@angular/router';
 import {DebuggerService} from "../../../common/services/debugger.service";
 import {apiResponse} from "../../../common/classes/apiResponse";

@@ -1,0 +1,31 @@
+/deep/.mat-tab-label, /deep/.mat-tab-label-active{
+  min-width: 0 !important;
+  background-color: #27B44C !important;
+  color: white !important;
+}
+
+.trending {
+  background-color: #00467F;
+  color: white;
+  height: 30px;
+}
+
+.stock_chart {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 300px;
+}
+.trending-companies {
+  background-color: #EEE;
+  height: 100px;
+}
+.card-action {
+  text-align: center;
+}
+.tab-body-content {
+  height: 225px;
+}
+
+.tab-body-container {
+  height: 300px;
+}

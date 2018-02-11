@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { apiResponse } from '../../common/classes/apiResponse';
-import { DebuggerService } from '../../common/services/debugger.service';
+import { apiResponse } from '../classes/apiResponse';
+import { DebuggerService } from './debugger.service';
 import {environment} from "../../../environments/environment";
 
 const httpOptions = {

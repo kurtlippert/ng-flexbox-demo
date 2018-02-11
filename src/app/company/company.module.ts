@@ -5,15 +5,20 @@ import {HttpClientModule} from "@angular/common/http";
 import { CompanyProfileComponent } from './components/profile/profile.component';
 
 import { DebuggerService } from '../common/services/debugger.service';
-import { PlatformidCompanyService } from './services/platformid-company.service';
+import { PlatformidCompanyService } from '../common/services/platformid-company.service';
+
+import { LayoutModule } from '../common/module/layout.module';
+import { CompanyNewsComponent } from "./components/news/news.component";
 
 @NgModule({
   declarations: [
     CompanyProfileComponent,
+    CompanyNewsComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    LayoutModule,
   ],
   providers: [
     DebuggerService,

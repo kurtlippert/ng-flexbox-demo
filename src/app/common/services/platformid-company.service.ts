@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { apiResponse } from '../../common/classes/apiResponse';
+import { apiResponse } from '../classes/apiResponse';
 import { environment } from '../../../environments/environment';
-import { DebuggerService } from '../../common/services/debugger.service';
+import { DebuggerService } from './debugger.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Basic WFhYYW5vbnltb3VzWFhYOg=='})
@@ -25,7 +25,17 @@ export class PlatformidCompanyService {
   /** GET Companies from the server */
   loadCompany (id: string): Observable<apiResponse> {
     let url = this.apiURL + '/api/company/profile/info?id=' + id;
-    console.log(url);
+    let api = this.http.get(url, httpOptions)
+      .pipe(
+        tap(apiResponse => this.log(`fetched Companies`)),
+        catchError(this.handleError('getCompanies', []))
+      );
+    return api as Observable<apiResponse>;
+  }
+
+  /** GET Companies from the server */
+  search (param: string): Observable<apiResponse> {
+    let url = this.apiURL + '/api/company/profile/search?param=' + param;
     let api = this.http.get(url, httpOptions)
       .pipe(
         tap(apiResponse => this.log(`fetched Companies`)),

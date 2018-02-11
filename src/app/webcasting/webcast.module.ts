@@ -6,7 +6,8 @@ import { WebcastConsoleComponent } from './components/console/console.component'
 import { WebcastEventListComponent } from './components/event-list/event-list.component';
 
 import { DebuggerService } from '../common/services/debugger.service';
-import { PlatformidWebcastService } from './services/platformid-webcast.service';
+import { PlatformidWebcastService } from '../common/services/platformid-webcast.service';
+import {LayoutModule} from "../common/module/layout.module";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PlatformidWebcastService } from './services/platformid-webcast.service'
   imports: [
     BrowserModule,
     HttpClientModule,
+    LayoutModule,
   ],
   providers: [
     DebuggerService,

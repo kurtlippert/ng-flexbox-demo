@@ -6,9 +6,9 @@ import { WebcastConsoleComponent }  from './webcasting/components/console/consol
 import { WebcastEventListComponent }  from './webcasting/components/event-list/event-list.component';
 
 const routes: Routes = [
-  { path: 'company/profile', component: CompanyProfileComponent },
+  { path: 'company/profile/:id', component: CompanyProfileComponent },
   { path: 'webcast/console/:id', component: WebcastConsoleComponent },
-  { path: 'webcast/events', component: WebcastEventListComponent },
+  { path: 'webcast/events', component: WebcastEventListComponent }
 ];
 
 @NgModule({
