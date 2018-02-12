@@ -28,12 +28,21 @@ export class PlatformidCompanyService {
     let api = this.http.get(url, httpOptions)
       .pipe(
         tap(apiResponse => this.log(`fetched Companies`)),
-        catchError(this.handleError('getCompanies', []))
+        catchError(this.handleError('loadCompany', []))
       );
     return api as Observable<apiResponse>;
   }
 
-  /** GET Companies from the server */
+  loadNewsBySymbol (id: string): Observable<apiResponse> {
+    let url = this.apiURL + '/api/company/news/feed?symbol=' + id;
+    let api = this.http.get(url, httpOptions)
+      .pipe(
+        tap(apiResponse => this.log(`fetched News`)),
+        catchError(this.handleError('loadNewsBySymbol', []))
+      );
+    return api as Observable<apiResponse>;
+  }
+
   search (param: string): Observable<apiResponse> {
     let url = this.apiURL + '/api/company/profile/search?param=' + param;
     let api = this.http.get(url, httpOptions)

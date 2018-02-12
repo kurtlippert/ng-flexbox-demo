@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PlatformidWebcastService} from "../../../common/services/platformid-webcast.service";
 import { ActivatedRoute } from '@angular/router';
 import {DebuggerService} from "../../../common/services/debugger.service";
@@ -10,7 +10,7 @@ import {Webcast} from "../../classes/webcast";
   templateUrl: './console.component.html',
   styleUrls: ['./console.component.css']
 })
-export class WebcastConsoleComponent implements OnInit {
+export class WebcastConsoleComponent implements OnInit, OnDestroy {
   webcast: Webcast = new Webcast();
   private sub: any;
 

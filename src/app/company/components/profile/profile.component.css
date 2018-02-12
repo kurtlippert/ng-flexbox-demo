@@ -10,22 +10,21 @@
   height: 30px;
 }
 
+.trending-companies {
+  background-color: #EEE;
+  height: 100px;
+}
+
 .stock_chart {
   text-align: center;
   vertical-align: middle;
   line-height: 300px;
 }
-.trending-companies {
-  background-color: #EEE;
-  height: 100px;
-}
-.card-action {
-  text-align: center;
-}
+
 .tab-body-content {
-  height: 225px;
+  height: auto;
 }
 
 .tab-body-container {
-  height: 300px;
+  height: 500px;
 }

@@ -5,15 +5,20 @@ import { DebuggerService } from "../../../common/services/debugger.service";
 import { apiResponse } from "../../../common/classes/apiResponse";
 import {ActivatedRoute} from "@angular/router";
 
+class News {
+  headline: string;
+  date: string;
+  preview_snippet: string;
+}
 
 @Component({
-  selector: 'company-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css']
+  selector: 'company-commentary',
+  templateUrl: './commentary.component.html',
+  styleUrls: ['./commentary.component.css']
 })
 
-export class CompanyNewsComponent implements OnInit {
-  news: any[] = new Array();
+export class CompanyCommentaryComponent implements OnInit {
+  commentary: any[] = new Array();
   @Input() symbol: string;
   @Input() columns: number = 3;
 
@@ -32,15 +37,15 @@ export class CompanyNewsComponent implements OnInit {
       if (response.count > 0) {
         let group: any[] = new Array();;
         let index = 1;
-        for (let entry of response.data as any[]) {
+        for (let entry of response.data as News[]) {
           group.push(entry);
           if (index % this.columns == 0) {
-            this.news.push(group);
+            this.commentary.push(group);
             group = new Array();
           }
           index++;
         }
-        this.news.push(group);
+        this.commentary.push(group);
       } else {
         // No results found
         this.logger.add('CompanyProfileComponent: No Results found');
