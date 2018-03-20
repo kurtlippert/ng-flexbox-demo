@@ -1,44 +1,48 @@
-import { Component } from '@angular/core';
-import {FormControl} from "@angular/forms";
-import {Observable} from "rxjs/Observable";
-import {startWith} from 'rxjs/operators/startWith';
-import {map} from 'rxjs/operators/map';
-import {PlatformidCompanyService} from "../../services/platformid-company.service";
-import {PlatformidWebcastService} from "../../services/platformid-webcast.service";
-import {Router} from "@angular/router";
+import {Component} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import {NgbTypeaheadConfig} from '@ng-bootstrap/ng-bootstrap';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import {FormControl, FormGroup} from '@angular/forms';
 
-export class Company {
-  constructor(public name: string, public logo: string) { }
-}
+const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
+  'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
+  'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine',
+  'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana',
+  'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+  'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island',
+  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Islands', 'Virginia',
+  'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styles: [`.form-control { width: 300px; }`],
+  providers: [NgbTypeaheadConfig] // add NgbTypeaheadConfig to the component providers
 })
 
 export class HeaderComponent {
-  searchCtrl: FormControl;
-  searchData: Company[] = [];
 
-  constructor(private router: Router, private apiService: PlatformidCompanyService) {
-    this.searchCtrl = new FormControl();
-    this.searchCtrl.valueChanges.debounceTime(400)
-      .subscribe(value => {
-        if (value === '') return;
-        // i don't want to make another request on value change if content placeholder already has it.
-        let exist = this.searchData.findIndex(t => t.name === value);
-        if (exist > -1) return;
+  public param: string;
 
-        // get data from the server. my response is an array [{id:1, text:'hello world'}]
-        this.apiService.search(value).subscribe(res  => { this.searchData = res.data as Company[]; });
-
-      });
-  };
-
-  selectCompany(value) {
-    this.searchCtrl.setValue('');
-    this.router.navigateByUrl('company/profile/' + value);
+  constructor(config: NgbTypeaheadConfig) {
+    // customize default values of typeaheads used by this component tree
+    config.showHint = true;
   }
+
+  searchParam(input: string) {
+    console.log(input);
+  }
+
+  navSelect(selected: number) {
+    console.log(selected);
+  }
+
+  search = (text$: Observable<string>) =>
+    text$
+      .debounceTime(200)
+      .distinctUntilChanged()
+      .map(term => term.length < 2 ? []
+        : states.filter(v => v.toLowerCase().startsWith(term.toLocaleLowerCase())).splice(0, 10))
 }

@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {PlatformidWebcastService} from "../../../common/services/platformid-webcast.service";
+import {PlatformidWebcastService} from '../../../common/services/platformid-webcast.service';
 import { ActivatedRoute } from '@angular/router';
-import {DebuggerService} from "../../../common/services/debugger.service";
-import {apiResponse} from "../../../common/classes/apiResponse";
-import {Webcast} from "../../classes/webcast";
+import {DebuggerService} from '../../../common/services/debugger.service';
+import {apiResponse} from '../../../common/classes/apiResponse';
+import {Webcast} from '../../classes/webcast';
 
 @Component({
   selector: 'webcast-console',
@@ -13,6 +13,7 @@ import {Webcast} from "../../classes/webcast";
 export class WebcastConsoleComponent implements OnInit, OnDestroy {
   webcast: Webcast = new Webcast();
   private sub: any;
+  private socket:any;
 
   constructor(private route: ActivatedRoute, private apiService: PlatformidWebcastService, private logger: DebuggerService) { }
 
@@ -21,6 +22,7 @@ export class WebcastConsoleComponent implements OnInit, OnDestroy {
       this.loadEvent(params['id']);
     });
   }
+
 
   ngOnDestroy() {
     this.sub.unsubscribe();
@@ -33,7 +35,7 @@ export class WebcastConsoleComponent implements OnInit, OnDestroy {
   }
 
   parseResponse(response: apiResponse) {
-    if (response.status == 'SUCCESS') {
+    if (response.status === 'SUCCESS') {
       if (response.count > 0) {
         this.webcast = response.data[0];
       } else {

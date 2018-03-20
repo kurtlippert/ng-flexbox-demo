@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  companyhub: "http://dockerhost:48100"
+  companyhub: 'http://dockerhost:48100'
 };

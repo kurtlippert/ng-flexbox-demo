@@ -1,26 +1,17 @@
-<mat-toolbar color="white">
-  <mat-toolbar-row class="header">
-    <span><img src="/assets/images/investor-network.png"></span>
-    <span class="example-spacer"></span>
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Company Name/Ticker" aria-label="Search" [matAutocomplete]="auto" [formControl]="searchCtrl">
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectCompany($event.option.value)">
-          <mat-option *ngFor="let company of searchData" [value]="company.id">
-            <img style="vertical-align:middle;" aria-hidden src="{{company.logo}}" height="15" />
-            <span>{{ company.name }}</span>
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    </form>
-    <mat-icon class="example-icon">sentiment_very_satisfied</mat-icon>
-    <mat-icon class="example-icon">sentiment_very_dissatisfied</mat-icon>
-  </mat-toolbar-row>
-  <mat-toolbar-row class="menu">
-    <button mat-button>Home</button>
-    <button mat-button>News</button>
-    <button mat-button>Commentary</button>
-    <button mat-button>Media</button>
-    <button mat-button>Research</button>
-  </mat-toolbar-row>
-</mat-toolbar>
+<nav class="navbar navbar-light bg-light">
+  <img src="/assets/images/investor-network.png">
+  <input id="param" type="text" class="form-control" placeholder="Search Company Name/Ticker" [ngbTypeahead]="search" (selectItem)="searchParam($event)"/>
+</nav>
+<nav class="navbar navbar-light bg-light">
+    <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic">
+      <label ngbButtonLabel class="btn-primary">
+        <input ngbButton type="radio" (click)="navSelect(1)"> Menu 1
+      </label>
+      <label ngbButtonLabel class="btn-primary">
+        <input ngbButton type="radio" (click)="navSelect(2)"> Menu 2
+      </label>
+      <label ngbButtonLabel class="btn-primary">
+        <input ngbButton type="radio" (click)="navSelect(3)"> Menu 3
+      </label>
+    </div>
+</nav>
