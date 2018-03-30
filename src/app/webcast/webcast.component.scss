@@ -1,0 +1,11 @@
+@media screen and (max-width: 991px){
+  .flex-col-max-991 {
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+  }
+
+  .flex-colrev-max-991 {
+    -webkit-flex-direction: column-reverse !important;
+    flex-direction: column-reverse !important;
+  }
+}
