@@ -11,7 +11,7 @@
       <div style="width: 100%; text-align: center">
         <i class="material-icons">dashboard</i>
       </div>
-      <div class="card">
+      <div class="card d-none d-lg-block">
         <div class="card-body">Trend Information</div>
       </div>
     </div>
@@ -30,7 +30,7 @@
       </div>
       <div class="w-100 mt-2 mb-4">
         <div class="d-flex flex-row w-100">
-          <div class="d-flex align-items-end w-100">
+          <div class="d-flex align-items-end">
             <!-- facebook icon (svg) -->
             <svg style="width:24px;height:24px" viewBox="0 0 24 24">
               <path fill="#000000" d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M18,5H15.5A3.5,3.5 0 0,0 12,8.5V11H10V14H12V21H15V14H18V11H15V9A1,1 0 0,1 16,8H18V5Z"
@@ -52,7 +52,7 @@
               />
             </svg>
           </div>
-          <div class="col-6">
+          <div class="ml-5">
             <div class="w-100 text-center">Rate our App</div>
             <div class="w-100 text-center">
               <i class="material-icons align-bottom" style="color: #13b546">star</i>
@@ -64,17 +64,19 @@
         </div>
       </div>
       <div class="w-100">
-          <form>
-            <div class="form-group">
-              <label for="questionInput">Ask a Question</label>
-              <textarea class="form-control" id="questionInput" rows="3"></textarea>
-            </div>
+        <form>
+          <div class="form-group">
+            <label for="questionInput">Ask a Question</label>
+            <textarea class="form-control" id="questionInput" rows="3"></textarea>
+          </div>
+          <div class="form-group">
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="contactToggle">
               <label class="form-check-label" for="contactToggle">I am interested and would like the company to contact me.</label>
             </div>
-            <button type="submit" class="btn btn-primary pull-right">Submit</button>
-          </form>
+          </div>
+          <button type="submit" class="btn btn-primary float-lg-right">Submit</button>
+        </form>
       </div>
     </div>
     <div class="col-lg-8 justify-content-center" style="width: 100%">
@@ -91,32 +93,24 @@
       </div>
     </div>
   </div>
-  <div class="d-flex flex-row" style="width: 100%">
-    <div class="col-4">
+  <div class="d-flex flex-row flex-col-max-991" style="width: 100%">
+    <div class="col-lg-4">
       <div class="form-group">
         <label>Support</label>
         <div class="d-flex flex-row" style="width: 120px; cursor: pointer;">
-          <!-- email outline icon -->
-          <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-            <path fill="#000000" d="M4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4M12,11L20,6H4L12,11M4,18H20V8.37L12,13.36L4,8.37V18Z"
-            />
-          </svg>
+          <i class="material-icons">mail_outline</i>
           <div class="col-1">
             <span>Contact</span>
           </div>
         </div>
         <div class="d-flex flex-row" style="width: 120px; cursor: pointer;">
-          <!-- question mark icon -->
-          <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-            <path fill="#000000" d="M10,19H13V22H10V19M12,2C17.35,2.22 19.68,7.62 16.5,11.67C15.67,12.67 14.33,13.33 13.67,14.17C13,15 13,16 13,17H10C10,15.33 10,13.92 10.67,12.92C11.33,11.92 12.67,11.33 13.5,10.67C15.92,8.43 15.32,5.26 12,5A3,3 0 0,0 9,8H6A6,6 0 0,1 12,2Z"
-            />
-          </svg>
+          <i class="material-icons">help_outline</i>
           <div class="col-1">
             <span>FAQ</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-8 text-center">issuer direct logo</div>
+    <div class="col-lg-8 text-center">issuer direct logo</div>
   </div>
 </div>
