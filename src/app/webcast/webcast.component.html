@@ -6,8 +6,8 @@
       </div>
     </div>
   </div>
-  <div class="d-flex flex-row m-4 w-100">
-    <div class="col-4">
+  <div class="d-flex flex-row mb-4 w-100 flex-col-max-991">
+    <div class="col-lg-4">
       <div style="width: 100%; text-align: center">
         <i class="material-icons">dashboard</i>
       </div>
@@ -15,14 +15,14 @@
         <div class="card-body">Trend Information</div>
       </div>
     </div>
-    <div class="col-8 justify-content-center">
+    <div class="col-lg-8 justify-content-center">
       <div class="card" style="height: 100%">
         <div class="card-body">Speaker Information</div>
       </div>
     </div>
   </div>
-  <div class="d-flex flex-row m-4 w-100">
-    <div class="col-4">
+  <div class="d-flex flex-row mb-4 w-100 flex-colrev-max-991">
+    <div class="col-lg-4">
       <div class="w-100">
         <div class="card">
           <div class="card-body">Announcements</div>
@@ -30,7 +30,7 @@
       </div>
       <div class="w-100 mt-2 mb-4">
         <div class="d-flex flex-row w-100">
-          <div class="d-flex align-items-end justify-content-between w-100">
+          <div class="d-flex align-items-end w-100">
             <!-- facebook icon (svg) -->
             <svg style="width:24px;height:24px" viewBox="0 0 24 24">
               <path fill="#000000" d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M18,5H15.5A3.5,3.5 0 0,0 12,8.5V11H10V14H12V21H15V14H18V11H15V9A1,1 0 0,1 16,8H18V5Z"
@@ -52,30 +52,37 @@
               />
             </svg>
           </div>
-          <div class="col-6 offset-2">
+          <div class="col-6">
             <div class="w-100 text-center">Rate our App</div>
-            <div class="w-100">Rating_Placeholder</div>
+            <div class="w-100 text-center">
+              <i class="material-icons align-bottom" style="color: #13b546">star</i>
+              <i class="material-icons align-bottom" style="color: #13b546">star</i>
+              <i class="material-icons align-bottom" style="color: #13b546">star</i>
+              <i class="material-icons align-bottom" style="color: #b8b8b8">star</i>
+            </div>
           </div>
         </div>
       </div>
       <div class="w-100">
-        <form>
-          <div class="form-group">
-            <label for="questionInput">Ask a Question</label>
-            <textarea class="form-control" id="questionInput" rows="3"></textarea>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="contactToggle">
-            <label class="form-check-label" for="contactToggle">I am interested and would like the company to contact me.</label>
-          </div>
-          <button type="submit" class="btn btn-primary pull-right">Submit</button>
-        </form>
+          <form>
+            <div class="form-group">
+              <label for="questionInput">Ask a Question</label>
+              <textarea class="form-control" id="questionInput" rows="3"></textarea>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="contactToggle">
+              <label class="form-check-label" for="contactToggle">I am interested and would like the company to contact me.</label>
+            </div>
+            <button type="submit" class="btn btn-primary pull-right">Submit</button>
+          </form>
       </div>
     </div>
-    <div class="col-8 justify-content-center" style="width: 100%">
+    <div class="col-lg-8 justify-content-center" style="width: 100%">
       <div class="card">
         <div class="card-body">
-          <div>Video Presentation Area</div>
+          <div style="height: 500px">
+            Video Presentation Area
+          </div>
           <div>Video Playback Widget</div>
         </div>
       </div>
@@ -84,7 +91,7 @@
       </div>
     </div>
   </div>
-  <div class="d-flex flex-row m-4" style="width: 100%">
+  <div class="d-flex flex-row" style="width: 100%">
     <div class="col-4">
       <div class="form-group">
         <label>Support</label>
@@ -110,6 +117,6 @@
         </div>
       </div>
     </div>
-    <div class="col-8">issuer direct logo</div>
+    <div class="col-8 text-center">issuer direct logo</div>
   </div>
 </div>
