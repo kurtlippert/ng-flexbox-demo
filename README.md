@@ -26,3 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 # PlatformID-UI
+- Run `yarn` to install dependencies (install via package manager or website)
+- Run `yarn start` to start the dev server
+- Run `yarn build` to create bundle for release
+- Look at `package.json` for more commands
