@@ -1,3 +1,11 @@
+export interface State {
+  company: Company;
+  speaker: Speaker;
+  social: Social
+  sponsorImageUrl: string;
+  rating: Rating;
+}
+
 export interface Company {
   id: number;
   name: string;
@@ -12,6 +20,7 @@ export interface Company {
   fiscalYearEnd: string;
   sector: string;
   location: string;
+  imageUrl: string;
 }
 
 export interface Speaker {
@@ -22,7 +31,6 @@ export interface Speaker {
 export interface Social {
   facebook: string;
   linkedIn: string;
-  picture: string;
   twitter: string;
   website: string;
 }
