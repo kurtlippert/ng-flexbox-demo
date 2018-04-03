@@ -49,7 +49,35 @@ export class WebcastComponent implements OnInit {
       website: ''
     },
     sponsorImageUrl: 'https://github.com/IssuerDirect.png',
-    rating: 'N/A'
+    rating: 'N/A',
+    webcastTitle: 'Fourth Quarter 2017 Earnings Release Conference Call',
+    companyMaterials: [
+      {
+        name: 'Website',
+        url: 'https://www.google.com'
+      },
+      {
+        name: 'Slides',
+        url: 'http://gahp.net/wp-content/uploads/2017/09/sample.pdf'
+      }
+    ],
+    pressReleases: [
+      {
+        date: '1/14/2018',
+        name: 'Title of Press Release will go here',
+        url: 'https://www.google.com'
+      },
+      {
+        date: '1/14/2018',
+        name: 'Title of Press Release will go here',
+        url: 'https://www.google.com'
+      },
+      {
+        date: '1/14/2018',
+        name: 'Title of Press Release will go here',
+        url: 'https://www.google.com'
+      }
+    ]
   }
 
   isNegative(num: number) {
