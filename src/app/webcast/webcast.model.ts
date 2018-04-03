@@ -4,6 +4,9 @@ export interface State {
   social: Social
   sponsorImageUrl: string;
   rating: Rating;
+  webcastTitle: string;
+  pressReleases: PressRelease[];
+  companyMaterials: CompanyMaterials[];
 }
 
 export interface Company {
@@ -36,6 +39,17 @@ export interface Social {
   linkedIn: string;
   twitter: string;
   website: string;
+}
+
+export interface PressRelease {
+  name: string;
+  date: string;
+  url: string;
+}
+
+export interface CompanyMaterials {
+  name: string;
+  url: string;
 }
 
 export type Rating =
