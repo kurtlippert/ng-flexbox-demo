@@ -8,7 +8,28 @@
         <img src="{{ state.company.imageUrl }}" width="100px" height="100px" />
       </div>
       <div class="card d-none d-lg-block">
-        <div class="card-body">Trend Information</div>
+        <div class="card-body p-2">
+          <div class="d-flex flex-row">
+            <div class="col-5 f-bold d-flex justify-content-end align-self-center f-lg">{{ state.company.stockPrice }}</div>
+            <div class="col-1 d-flex align-self-center f-lg pb-1"> | </div>
+            <div class="col-5">
+              <div class="d-flex">
+                <i *ngIf=isNegative(state.company.dailyChange) class="material-icons" style="color: #ee1d25">keyboard_arrow_down</i>
+                <span *ngIf=isNegative(state.company.dailyChange)>-</span>
+                <i *ngIf=!isNegative(state.company.dailyChange) class="material-icons" style="color: #13b546">keyboard_arrow_up</i>
+                <span *ngIf=!isNegative(state.company.dailyChange) style="visibility: hidden">-</span>
+                {{ abs(state.company.dailyChange) }}
+              </div>
+              <div class="d-flex">
+                <i *ngIf=isNegative(state.company.yearlyChange) class="material-icons" style="color: #ee1d25">keyboard_arrow_down</i>
+                <span *ngIf=isNegative(state.company.yearlyChange)>-</span>
+                <i *ngIf=!isNegative(state.company.yearlyChange) class="material-icons" style="color: #13b546">keyboard_arrow_up</i>
+                <span *ngIf=!isNegative(state.company.yearlyChange) style="visibility: hidden">-</span>
+                {{ abs(state.company.yearlyChange) }}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-lg-8 justify-content-center mt-5">
