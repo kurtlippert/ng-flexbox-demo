@@ -21,6 +21,9 @@ export interface Company {
   sector: string;
   location: string;
   imageUrl: string;
+  stockPrice: string;
+  yearlyChange: number;
+  dailyChange: number;
 }
 
 export interface Speaker {

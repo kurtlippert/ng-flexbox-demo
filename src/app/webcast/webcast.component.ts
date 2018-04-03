@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { State } from './webcast.model';
 
+
 @Component({
   selector: 'app-webcast',
   templateUrl: './webcast.component.html',
@@ -32,7 +33,10 @@ export class WebcastComponent implements OnInit {
       fiscalYearEnd: 'never!',
       sector: 'Food Service',
       location: 'Tallahasse, Florida',
-      imageUrl: 'https://github.com/IssuerDirect.png'
+      imageUrl: 'https://github.com/IssuerDirect.png',
+      stockPrice: '$106.70',
+      dailyChange: -0.01,
+      yearlyChange: 0.32
     },
     speaker: {
       name: 'Patrick J Ottensmeyer',
@@ -46,6 +50,14 @@ export class WebcastComponent implements OnInit {
     },
     sponsorImageUrl: 'https://github.com/IssuerDirect.png',
     rating: 'N/A'
+  }
+
+  isNegative(num: number) {
+    return Math.sign(num) === -1;
+  }
+
+  abs(num: number) {
+    return Math.abs(num);
   }
 
   constructor() { }
