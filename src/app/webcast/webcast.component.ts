@@ -11,6 +11,7 @@ import { State } from './webcast.model';
 export class WebcastComponent implements OnInit {
 
   state: State = {
+    layout: 1,
     company: {
       id: 0,
       name: 'Standard Company Name',

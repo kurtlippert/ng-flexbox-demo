@@ -1,4 +1,5 @@
 export interface State {
+  layout: Layout;
   company: Company;
   speaker: Speaker;
   social: Social
@@ -51,6 +52,12 @@ export interface CompanyMaterials {
   name: string;
   url: string;
 }
+
+export type Layout =
+  | 1
+  | 2
+  | 3
+  | 4
 
 export type Rating =
   | "N/A"
