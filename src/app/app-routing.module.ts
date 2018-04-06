@@ -8,6 +8,7 @@ import { WebcastComponent } from './webcast/webcast.component';
 
 const routes: Routes = [
   { path: '', component: WebcastComponent },
+  { path: 'ng-flexbox-demo/', component: WebcastComponent },
   { path: 'company/profile/:id', component: CompanyProfileComponent },
   { path: 'webcast/console/:id', component: WebcastConsoleComponent },
   { path: 'webcast/events', component: WebcastEventListComponent }
