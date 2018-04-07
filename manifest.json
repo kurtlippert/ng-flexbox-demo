@@ -16,6 +16,10 @@
         {
             "src": "/images/ng-flexbox-demo/favicon.ico",
             "sizes": "16x16 32x32"
+        },
+        {
+            "src": "/images/ng-flexbox-demo/isdr_logo.png",
+            "sizes": "144x144"
         }
     ]
 }
