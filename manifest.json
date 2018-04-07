@@ -3,7 +3,7 @@
     "lang": "en",
     "name": "ng-flexbox-demo",
     "scope": "/ng-flexbox-demo/",
-    "display": "browser",
+    "display": "standalone",
     "start_url": "https://kurtlippert.github.io/ng-flexbox-demo/",
     "short_name": "flexdemo",
     "theme_color": "transparent",
