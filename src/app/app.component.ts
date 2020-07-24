@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import * as socketCluster from 'socketcluster-client/socketcluster.js';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

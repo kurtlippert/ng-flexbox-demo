@@ -22,7 +22,6 @@ import { WebcastComponent } from './webcast/webcast.component';
     CompanyModule,
     WebcastModule,
     HttpClientModule,
-    NgbModule.forRoot(),
   ],
   providers: [
     DebuggerService,

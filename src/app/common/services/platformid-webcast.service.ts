@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { of } from 'rxjs/observable/of';
+import { of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { apiResponse } from '../classes/apiResponse';
